@@ -1,0 +1,18 @@
+#footer {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  margin: 0 2em 50px; /* Appliquer le margin seulement en bas et sur les côtés */
+  border-radius: 25px;
+  background-color: #6f6c6c50;
+  box-shadow: var(--shadow-md);
+  text-shadow: var(--shadow-md);
+  font-size: var(--text-md);
+  font-family: var(--font-body);
+}
+
+#anssi{
+  vertical-align: middle;
+  margin-top: 0;
+  margin-bottom: 4px;
+}
