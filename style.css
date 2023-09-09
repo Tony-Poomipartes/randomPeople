@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px; 
+  height: 100vh; 
+  background-color: #333; 
+  color: #fff;   
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Style du bouton "Add 10 peoples" */
+#addPeoples {
+  background-color: #007bff; /* Couleur de fond du bouton */
+  color: #fff; /* Couleur du texte du bouton */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+/* Style du bouton de type range */
+#gender-range {
+  width: 100%;
+}
+
+/* Style des cartes d'utilisateur */
+.user-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin: 20px;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  width: calc(50% - 1em);
+}
+
+/* Style de l'élément #userData où sont ajoutées les cartes d'utilisateur */
+#userData {
+  margin-left: 220px; /* Pour laisser de l'espace à gauche du contenu */
+  padding: 20px;
+}
