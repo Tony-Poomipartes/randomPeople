@@ -11,9 +11,16 @@ const app = {
   addListenerToActions() {
     const addPeopleBtnElmt = document.getElementById('addPeoples');
     addPeopleBtnElmt.addEventListener("click", () => {
-      console.log("Le bouton a été cliqué !");
-      listModule.getListsFromAPI();
+      const genderParam = listModule.filterByGender();
+      listModule.getListsFromAPI(genderParam);
     });
+
+    const genderRangeInput = document.getElementById('gender-range');
+genderRangeInput.addEventListener('change', () => {
+  const selectedGender = genderRangeInput.value;
+  listModule.filterByGender(selectedGender);
+  listModule.clearUserCards();
+});
   }
 }
 document.addEventListener('DOMContentLoaded', app.init);

@@ -46,11 +46,13 @@ h1 {
   margin: 20px;
   padding: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  width: calc(50% - 1em);
+  width: calc(45% - 1em);
 }
 
 /* Style de l'élément #userData où sont ajoutées les cartes d'utilisateur */
-#userData {
-  margin-left: 220px; /* Pour laisser de l'espace à gauche du contenu */
+#card-list {
+  margin-left: 17em; /* Pour laisser de l'espace à gauche du contenu */
   padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
 }
