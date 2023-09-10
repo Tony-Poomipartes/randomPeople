@@ -23,7 +23,9 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Style du bouton "Add 10 peoples" */
+/*?=====================================*/
+/*?    button style "Add 10 peoples"
+/*?=====================================*/
 #addPeoples {
   background-color: #007bff; /* Couleur de fond du bouton */
   color: #fff; /* Couleur du texte du bouton */
@@ -34,25 +36,72 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Style du bouton de type range */
+/*?=====================================*/
+/*?        button style range type
+/*?=====================================*/
 #gender-range {
   width: 100%;
 }
 
-/* Style des cartes d'utilisateur */
+/*?=====================================*/
+/*?   user card list style "containner"
+/*?=====================================*/
+#card-list {
+  margin-left: 17em;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*?=====================================*/
+/*?        user card style
+/*?=====================================*/
 .user-card {
-  background-color: #fff;
+  /* background-color: #fff; */
   border: 1px solid #ddd;
   margin: 20px;
   padding: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  width: calc(45% - 1em);
+  /* width: calc(45% - 1em); */
+  position: relative;
+  border-radius: 10px;
+}
+.user-image{
+  max-width: 100%;
+  border-radius: 50%;
 }
 
-/* Style de l'élément #userData où sont ajoutées les cartes d'utilisateur */
-#card-list {
-  margin-left: 17em; /* Pour laisser de l'espace à gauche du contenu */
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
+/*?=====================================*/
+/*?        close button style
+/*?=====================================*/
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 4px 8px;
+  background-color: rgba(172, 172, 172, 0.2); /* Fond légèrement transparent */
+  border: 1px solid rgba(0, 0, 0, 0.2); /* Bordure légère */
+  border-radius: 50%; /* Rend le bouton rond */
+  transition: background-color 0.3s, transform 0.2s; /* Transition pour l'effet hover */
+}
+
+.close-button:hover {
+  color: rgb(187, 1, 1);
+  background-color: rgba(70, 70, 70, 0.632); /* Fond plus foncé au survol */
+  transform: scale(1.1); /* Effet d'agrandissement au survol */
+  border-color: rgba(0, 0, 0, 0.5); /* Bordure plus foncée au survol */
+}
+
+/* Augmenter la zone de captation */
+.close-button::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -20px;
+  right: -10px;
+  bottom: -20px;
 }

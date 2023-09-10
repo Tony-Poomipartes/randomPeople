@@ -4,10 +4,15 @@ import apiModule from './api';
 const cardModule = {
 /*?=====================================*/
 /*?           create User Card
-/*?=====================================*/
+/*=====================================*/
   createUserCard(userData) {
+
+    const cardWrapper = document.createElement('div');
+    cardWrapper.classList.add('cardWrapper');
+    
     const userCard = document.createElement('div');
     userCard.classList.add('user-card');
+    cardWrapper.appendChild(userCard);
 
     const userDataKeys = {
       'Name': `${userData.name.first} ${userData.name.last}`,
@@ -19,6 +24,7 @@ const cardModule = {
     };
 
     const img = document.createElement('img');
+    img.classList.add('user-image');
     img.src = userData.picture.large;
     img.alt = 'Profile Picture';
     img.class = 'profile-picture';
@@ -43,7 +49,7 @@ const cardModule = {
     });
     userCard.appendChild(closeButton);
 
-    document.getElementById('card-list').appendChild(userCard);
+    document.getElementById('card-list').appendChild(cardWrapper);
   },
 
 /*?=====================================*/

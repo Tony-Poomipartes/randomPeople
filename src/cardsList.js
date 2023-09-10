@@ -57,7 +57,19 @@ const cardsListModule = {
       alert(`Failed to fetch lists from the API. Status: ${error}`);
     }
   },
-
+  async getImageBackground() {
+    try {
+      const response = await fetch(apiModule.bg_url);
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      const imageURL = await response.text(); 
+      return imageURL;
+    } catch (error) {
+      console.error(`Failed to fetch background image. Status: ${error}`);
+      return null;
+    }
+  },
 };
 
 export default cardsListModule;
