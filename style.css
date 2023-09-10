@@ -19,30 +19,47 @@ header {
 }
 
 h1 {
-  font-size: 20px;
+  font-size: 35px;
   margin-bottom: 20px;
+  font-family:  Helvetica,Arial, sans-serif;
 }
 
 /*?=====================================*/
 /*?    button style "Add 10 peoples"
 /*?=====================================*/
 #addPeoples {
-  background-color: #007bff; /* Couleur de fond du bouton */
-  color: #fff; /* Couleur du texte du bouton */
+  background: linear-gradient(180deg, #836729f7 9.16%, #5643CC 43.89%, #673FD7 64.72%); 
+  color: #fff; 
   border: none;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   margin-bottom: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(207, 207, 207, 0.2);
 }
 
 /*?=====================================*/
-/*?        button style range type
+/*?       Gender button style 
 /*?=====================================*/
-#gender-range {
-  width: 100%;
+
+.gender-button {
+  background-color: #067eff1d;
+  border: 1px solid #067eff;
+  color: #ffffff;
+  font-weight: normal;
+  padding: 4px 8px;
+  cursor: pointer;
+  margin-right: 8px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(207, 207, 207, 0.2);
 }
 
+.gender-button.selected {
+  background: linear-gradient(180deg, #836729f7 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+  color: white;
+  font-weight: bold;
+}
 /*?=====================================*/
 /*?   user card list style "containner"
 /*?=====================================*/
@@ -57,17 +74,26 @@ h1 {
 /*?        user card style
 /*?=====================================*/
 .user-card {
-  /* background-color: #fff; */
+  background: linear-gradient(to bottom, #fbdc0087 0%, #9ea1a387 30%, #7408e787 30%, #54a6f887 100%);
   border: 1px solid #ddd;
   margin: 20px;
   padding: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  /* width: calc(45% - 1em); */
+  width: 300px; 
+  height: 400px; 
   position: relative;
   border-radius: 10px;
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: center; 
+}
+.user-card  p {
+  margin: 5px 0; 
 }
 .user-image{
   max-width: 100%;
+  height: auto; 
   border-radius: 50%;
 }
 
@@ -76,27 +102,27 @@ h1 {
 /*?=====================================*/
 .close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0px;
+  right: 0px;
   cursor: pointer;
   font-family: Arial, sans-serif;
   font-weight: bold;
   font-size: 18px;
   padding: 4px 8px;
-  background-color: rgba(172, 172, 172, 0.2); /* Fond légèrement transparent */
-  border: 1px solid rgba(0, 0, 0, 0.2); /* Bordure légère */
-  border-radius: 50%; /* Rend le bouton rond */
-  transition: background-color 0.3s, transform 0.2s; /* Transition pour l'effet hover */
+  background-color: rgba(172, 172, 172, 0.2); 
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0% 34% 0% 50%;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .close-button:hover {
-  color: rgb(187, 1, 1);
-  background-color: rgba(70, 70, 70, 0.632); /* Fond plus foncé au survol */
-  transform: scale(1.1); /* Effet d'agrandissement au survol */
-  border-color: rgba(0, 0, 0, 0.5); /* Bordure plus foncée au survol */
+  color: rgba(208, 3, 188, 0.623);
+  background-color: rgba(70, 70, 70, 0.632); 
+  transform: scale(1.1); 
+  border-color: rgba(0, 0, 0, 0.5); 
 }
 
-/* Augmenter la zone de captation */
+
 .close-button::before {
   content: "";
   position: absolute;
