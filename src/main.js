@@ -1,25 +1,26 @@
-import listModule from './list';
+import cardsListModule from './cardsList';
 
 const app = {
   init: function () {
 
     app.addListenerToActions();
-    listModule.getListsFromAPI();
+    cardsListModule.getListsFromAPI();
+    sessionStorage.clear();
     console.log('app.init !');
   },
 
   addListenerToActions() {
     const addPeopleBtnElmt = document.getElementById('addPeoples');
     addPeopleBtnElmt.addEventListener("click", () => {
-      const genderParam = listModule.filterByGender();
-      listModule.getListsFromAPI(genderParam);
+      let genderParam = sessionStorage.getItem('genderParam');
+      cardsListModule.getListsFromAPI(genderParam);
     });
 
     const genderRangeInput = document.getElementById('gender-range');
 genderRangeInput.addEventListener('change', () => {
   const selectedGender = genderRangeInput.value;
-  listModule.filterByGender(selectedGender);
-  listModule.clearUserCards();
+  cardsListModule.filterByGender(selectedGender);
+  cardsListModule.clearUserCards();
 });
   }
 }
