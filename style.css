@@ -2,7 +2,9 @@ body {
   margin: 0;
   padding: 0;
 }
-
+/*?=====================================*/
+/*?             header style
+/*?=====================================*/
 header {
   position: fixed;
   top: 0;
@@ -130,4 +132,36 @@ h1 {
   left: -20px;
   right: -10px;
   bottom: -20px;
+}
+
+/*!=====================================*/
+/*!          responsive style
+/*!=====================================*/
+@media screen and (max-width: 700px) {
+  header {
+    width: 100%; /* La largeur du menu header prend toute la largeur de l'écran */
+    height: auto; /* Hauteur automatique en fonction du contenu */
+    position: fixed; /* Le menu reste en position fixe */
+    z-index: 1;
+  }
+  
+  h1 {
+    font-size: 25px;
+  }
+
+  #card-list {
+    position: relative;
+    margin-top: 200px;
+    margin-left: 0;
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+    z-index: 0;
+  }
+
+  .user-card {
+    width: 90%; /* Par exemple, la carte prendra 90% de la largeur de l'écran */
+    height: auto; /* Pour que la hauteur s'ajuste automatiquement au contenu */
+    margin: 10px auto;
+  }
 }
