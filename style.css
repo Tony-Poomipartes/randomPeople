@@ -27,13 +27,52 @@ h1 {
 }
 
 /*?=====================================*/
-/*?    button style "Add 10 peoples"
+/*?        Burger menu style
+/*?=====================================*/
+#burger-menu-wrapper {
+display: flex;
+align-items: center;
+}
+
+#burger-menu {
+  margin-left: 10px;
+  /* display: none; */
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1;
+}
+
+.bar {
+  width: 25px;
+  height: 2px;
+  background-color: #f5f5f5;
+  margin: 3px 0;
+  transition: transform 0.3s, opacity 0.5s;
+}
+.menu-open .bar:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.menu-open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-open .bar:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+.menu-open #addPeoples,
+.menu-open .gender-button {
+  display: none;
+}
+/*?=====================================*/
+/*?    Button style "Add 10 peoples"
 /*?=====================================*/
 #addPeoples {
   background: linear-gradient(180deg, #836729f7 9.16%, #5643CC 43.89%, #673FD7 64.72%); 
   color: #fff; 
   border: none;
-  padding: 10px 20px;
+  padding: 10px 30px;
   font-size: 16px;
   cursor: pointer;
   margin-bottom: 20px;
@@ -50,7 +89,7 @@ h1 {
   border: 1px solid #067eff;
   color: #ffffff;
   font-weight: normal;
-  padding: 4px 8px;
+  padding: 5px 8px;
   cursor: pointer;
   margin-right: 8px;
   border-radius: 4px;
@@ -137,12 +176,29 @@ h1 {
 /*!=====================================*/
 /*!          responsive style
 /*!=====================================*/
+@media screen and (min-width: 700px) {
+  #burger-menu {
+    display: none;
+  }
+}
 @media screen and (max-width: 700px) {
+
+  #addPeoples, .gender-button {
+  display: none;
+}
+.menu-open #addPeoples,
+.menu-open .gender-button {
+  display: flex;
+  margin-bottom: 5px;
+}
+
   header {
-    width: 100%; /* La largeur du menu header prend toute la largeur de l'écran */
-    height: auto; /* Hauteur automatique en fonction du contenu */
-    position: fixed; /* Le menu reste en position fixe */
+    width: 100%; 
+    height: auto; 
+    position: fixed; 
     z-index: 1;
+    padding: 0px;
+    box-shadow: 0 0 10px rgb(38, 38, 38);
   }
   
   h1 {

@@ -4,6 +4,7 @@ const app = {
   init: function () {
 
     app.addListenerToActions();
+    app.burgerMenu()
     cardsListModule.getListsFromAPI();
     sessionStorage.removeItem('genderParam');
     console.log('app.init !');
@@ -27,6 +28,26 @@ const app = {
         cardsListModule.filterByGender(selectedGender);
         cardsListModule.clearUserCards();
       });
+    });
+  },
+  burgerMenu() {
+    const burgerMenu = document.getElementById('burger-menu');
+    const menu = document.querySelector('header');
+
+    burgerMenu.addEventListener('click', () => {
+      menu.classList.toggle('menu-open');
+    });
+
+    // Fermer le menu lorsque l'utilisateur clique en dehors du menu
+    document.addEventListener('click', (event) => {
+      if (!menu.contains(event.target) && !burgerMenu.contains(event.target)) {
+        menu.classList.remove('menu-open');
+      }
+    });
+
+    // Fermer le menu lorsque l'utilisateur fait défiler la page
+    window.addEventListener('scroll', () => {
+      menu.classList.remove('menu-open');
     });
   }
 }
