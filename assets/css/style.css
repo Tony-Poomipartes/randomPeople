@@ -115,7 +115,7 @@ align-items: center;
 /*?        user card style
 /*?=====================================*/
 .user-card {
-  background: linear-gradient(to bottom, #fbdc0087 0%, #9ea1a387 30%, #7408e787 30%, #54a6f887 100%);
+  background: linear-gradient(to bottom, #000000 0%, #424040 30%, #ededed87 30%, #e7e6d687 100%);
   border: 1px solid #ddd;
   margin: 20px;
   padding: 10px;
@@ -150,17 +150,17 @@ align-items: center;
   font-weight: bold;
   font-size: 18px;
   padding: 4px 8px;
-  background-color: rgba(172, 172, 172, 0.2); 
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: #ddd;
+  background-color: rgb(172 172 172 / 43%);
+  border: 1px solid rgb(163 158 158 / 20%);
   border-radius: 0% 34% 0% 50%;
   transition: background-color 0.3s, transform 0.2s;
 }
 
 .close-button:hover {
-  color: rgba(208, 3, 188, 0.623);
-  background-color: rgba(70, 70, 70, 0.632); 
-  transform: scale(1.1); 
-  border-color: rgba(0, 0, 0, 0.5); 
+  color: rgb(0, 0, 0);
+  background-color: rgba(212, 208, 208, 0.714); 
+  border-color: rgb(0, 0, 0); 
 }
 
 
@@ -173,6 +173,14 @@ align-items: center;
   bottom: -20px;
 }
 
+/*?=====================================*/
+/*?        icon style
+/*?=====================================*/
+.user-icon {
+  width: 32px; /* Ajustez la largeur selon vos besoins */
+  height: 32px; /* Ajustez la hauteur selon vos besoins */
+  margin-right: 8px; /* Espace entre les icônes, si nécessaire */
+}
 /*!=====================================*/
 /*!          responsive style
 /*!=====================================*/

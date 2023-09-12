@@ -10,7 +10,13 @@ const cardModule = {
       const userCard = document.createElement('div');
       userCard.classList.add('user-card');
       cardWrapper.appendChild(userCard);
+
+      const iconContainer = document.createElement('div');
+      iconContainer.classList.add('icon-container');
   
+      const iconNames = ['Name', 'Email', 'Birthday', 'Address', 'Phone', 'Password'];
+
+
       const userDataKeys = {
         'Name': `${userData.name.first} ${userData.name.last}`,
         'Email': userData.email,
@@ -19,7 +25,16 @@ const cardModule = {
         'Phone': userData.phone,
         'Password': userData.login.password,
       };
-  
+
+      iconNames.forEach(iconName => {
+        const icon = document.createElement('img');
+        icon.src = `assets/userIcon/${iconName}.png`; 
+        icon.alt = `${iconName} Icon`;
+        icon.classList.add('user-icon', `icon-${iconName.toLowerCase()}`);
+        iconContainer.appendChild(icon);
+      });
+
+
       const img = document.createElement('img');
       img.classList.add('user-image');
       img.src = userData.picture.large;
@@ -34,7 +49,7 @@ const cardModule = {
         userCard.appendChild(dataItem);
       });
       
-  
+      userCard.appendChild(iconContainer);
       const closeButton = document.createElement('span');
       closeButton.classList.add('close-button');
       
