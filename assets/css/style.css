@@ -37,7 +37,6 @@ align-items: center;
 
 #burger-menu {
   margin-left: 10px;
-  /* display: none; */
   cursor: pointer;
   padding: 10px;
   z-index: 1;
@@ -245,7 +244,7 @@ align-items: center;
 
   #card-list {
     position: relative;
-    margin-top: 200px;
+    margin-top: 75px;
     margin-left: 0;
     padding: 0;
     flex-direction: column;
@@ -254,8 +253,20 @@ align-items: center;
   }
 
   .user-card {
-    width: 90%; /* Par exemple, la carte prendra 90% de la largeur de l'écran */
-    height: auto; /* Pour que la hauteur s'ajuste automatiquement au contenu */
+    width: 300px; 
+    height: 350px;
     margin: 10px auto;
+  }
+
+  .data-text {
+    font-size: 15px;
+  }
+
+  .data-item {
+    font-size: 18px;
+  }
+
+  .user-icon {
+    margin-right:10px ;
   }
 }
