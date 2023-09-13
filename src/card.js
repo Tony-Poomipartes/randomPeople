@@ -14,40 +14,58 @@ const cardModule = {
       const iconContainer = document.createElement('div');
       iconContainer.classList.add('icon-container');
   
-      const iconNames = ['Name', 'Email', 'Birthday', 'Address', 'Phone', 'Password'];
-
 
       const userDataKeys = {
-        'Name': `${userData.name.first} ${userData.name.last}`,
-        'Email': userData.email,
-        'Birthday': userData.dob.date,
-        'Address': `${userData.location.street.number} ${userData.location.street.name}`,
-        'Phone': userData.phone,
-        'Password': userData.login.password,
+        'Name': ["Hi, My name is", `${userData.name.first} ${userData.name.last}`],
+        'Email': ["My email address is",userData.email],
+        'Birthday': ['My birthday is',userData.dob.date],
+        'Address': ['My address is',`${userData.location.street.number} ${userData.location.street.name}`],
+        'Phone': ['My phone number is',userData.phone],
+        'Password': ['My password is',userData.login.password],
       };
-
-      iconNames.forEach(iconName => {
-        const icon = document.createElement('img');
-        icon.src = `assets/userIcon/${iconName}.png`; 
-        icon.alt = `${iconName} Icon`;
-        icon.classList.add('user-icon', `icon-${iconName.toLowerCase()}`);
-        iconContainer.appendChild(icon);
-      });
 
 
       const img = document.createElement('img');
       img.classList.add('user-image');
       img.src = userData.picture.large;
       img.alt = 'Profile Picture';
-      img.class = 'profile-picture';
       userCard.appendChild(img);
   
-  
-      Object.entries(userDataKeys).map(([key, value]) => {
-        const dataItem = document.createElement('p');
-        dataItem.textContent = `${key}: ${value}`;
-        userCard.appendChild(dataItem);
+
+      const dataText = document.createElement('p');
+      const dataItem = document.createElement('p');
+      dataText.textContent = userDataKeys.Name[0];
+      dataItem.textContent = userDataKeys.Name[1];
+      dataItem.classList.add('data-item');
+      dataText.classList.add('data-text');
+      userCard.appendChild(dataText);
+      userCard.appendChild(dataItem);
+      let icon;
+      Object.entries(userDataKeys).map(([key,  [prefix, value]]) => {
+        icon = document.createElement('img');
+          icon.src = `assets/userIcon/${key}.png`; 
+          icon.alt = `${key} Icon`;
+          icon.classList.add('user-icon', `icon-${key.toLowerCase()}`);
+          iconContainer.appendChild(icon);
+          icon.addEventListener('mouseenter', () => {
+            const existingDataItem = userCard.querySelector('.data-item');
+            const existingDataText = userCard.querySelector('.data-text');
+            if (existingDataItem) {
+              existingDataItem.remove();
+              existingDataText.remove();
+            }
+
+            const dataText = document.createElement('p');
+            const dataItem = document.createElement('p');
+            dataText.textContent = `${prefix}`;
+            dataItem.textContent = `${value}`;
+            dataItem.classList.add('data-item');
+            dataText.classList.add('data-text');
+            userCard.appendChild(dataText);
+            userCard.appendChild(dataItem);
+          });
       });
+
       
       userCard.appendChild(iconContainer);
       const closeButton = document.createElement('span');
