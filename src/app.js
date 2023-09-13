@@ -38,14 +38,14 @@ const app = {
       menu.classList.toggle('menu-open');
     });
 
-    // Fermer le menu lorsque l'utilisateur clique en dehors du menu
+  
     document.addEventListener('click', (event) => {
       if (!menu.contains(event.target) && !burgerMenu.contains(event.target)) {
         menu.classList.remove('menu-open');
       }
     });
 
-    // Fermer le menu lorsque l'utilisateur fait défiler la page
+
     window.addEventListener('scroll', () => {
       menu.classList.remove('menu-open');
     });
