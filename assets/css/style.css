@@ -1,3 +1,38 @@
+/*?=====================================*/
+/*?             variables style
+/*?=====================================*/
+:root {
+  --primary-bg-color: #333;
+  --primary-text-color: #fff;
+  --secondary-bg-color: #181818;
+  --accent-color: #067eff;
+  --light-bg-color: #fff;
+  --light-text-color: #333;
+  --shadow-color: rgba(207, 207, 207, 0.2);
+  --border-color: #ddd;
+  --hover-bg-color: rgba(212, 208, 208, 0.714);
+}
+
+/** shadow */
+:root {
+  --box-shadow: 0 0 5px var(--shadow-color);
+}
+
+/** font-size */
+:root {
+  --h1-font-size: 35px;
+  --data-text-font-size: 28px;
+  --data-item-font-size: 28px; 
+}
+
+/* Autres styles */
+:root {
+  --border-radius: 10px;
+  --user-icon-size: 32px;
+  --close-button-size: 18px;
+  --menu-bar-width: 200px;
+}
+
 body {
   margin: 0;
   padding: 0;

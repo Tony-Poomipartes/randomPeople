@@ -4,11 +4,10 @@ const cardModule = {
   /*=====================================*/
     createUserCard(userData) {
   
-      const cardWrapper = document.createElement('div');
-      cardWrapper.classList.add('cardWrapper');
-      
-      const userCard = document.createElement('div');
-      userCard.classList.add('user-card');
+      const cardWrapper = this.createCardWrapper();
+      const userCard = this.createUserCardElement(userData);
+      const closeButton = this.createCloseButton(userCard);
+
       cardWrapper.appendChild(userCard);
 
       const iconContainer = document.createElement('div');
@@ -24,12 +23,6 @@ const cardModule = {
         'Password': ['My password is',userData.login.password],
       };
 
-
-      const img = document.createElement('img');
-      img.classList.add('user-image');
-      img.src = userData.picture.large;
-      img.alt = 'Profile Picture';
-      userCard.appendChild(img);
   
 
       const dataText = document.createElement('p');
@@ -43,7 +36,7 @@ const cardModule = {
       let icon;
       Object.entries(userDataKeys).map(([key,  [prefix, value]]) => {
         icon = document.createElement('img');
-          icon.src = `assets/userIcon/${key}.png`; 
+          icon.src = `/assets/userIcon/${key}.png`; 
           icon.alt = `${key} Icon`;
           icon.classList.add('user-icon', `icon-${key.toLowerCase()}`);
           iconContainer.appendChild(icon);
@@ -68,26 +61,53 @@ const cardModule = {
 
       
       userCard.appendChild(iconContainer);
-      const closeButton = document.createElement('span');
-      closeButton.classList.add('close-button');
-      
-      const closeButtonText = document.createTextNode('X'); 
-      
-      closeButton.appendChild(closeButtonText);
-      closeButton.addEventListener('click', () => {
-        this.removeUserCard(userCard); 
-      });
+
       userCard.appendChild(closeButton);
   
       document.getElementById('card-list').appendChild(cardWrapper);
     },
   
   /*?=====================================*/
-  /*?           Delete User Card
+  /*?           Create Card Wrapper
   /*?=====================================*/
-    removeUserCard(userCard) {
+  createCardWrapper() {
+    const cardWrapper = document.createElement('div');
+    cardWrapper.classList.add('cardWrapper');
+    return cardWrapper;
+  },
+
+  /*?=====================================*/
+  /*?           Create User Card Element
+  /*?=====================================*/
+  createUserCardElement(userData) {
+    const userCard = document.createElement('div');
+    userCard.classList.add('user-card');
+    const img = document.createElement('img');
+    img.classList.add('user-image');
+    img.src = userData.picture.large;
+    img.alt = 'Profile Picture';
+    userCard.appendChild(img);
+
+    // this.createUserDataText(userCard, userDataKeys.Name);
+
+    return userCard;
+  },
+
+    /*?=====================================*/
+  /*?           Create Close Button
+  /*?=====================================*/
+  createCloseButton(userCard) {
+    const closeButton = document.createElement('span');
+    closeButton.classList.add('close-button');
+    const closeButtonText = document.createTextNode('X');
+    closeButton.appendChild(closeButtonText);
+
+    closeButton.addEventListener('click', () => {
       userCard.remove();
-    },
+    });
+
+    return closeButton;
+  },
   };
   
   export default cardModule;
