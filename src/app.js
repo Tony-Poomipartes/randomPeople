@@ -10,44 +10,59 @@ const app = {
     console.log('app.init !');
   },
 
-  addListenerToActions() {
-    const addPeopleBtnElmt = document.getElementById('addPeoples');
-    addPeopleBtnElmt.addEventListener("click", () => {
-      const genderParam = sessionStorage.getItem('genderParam');
-      cardsListModule.getListsFromAPI(genderParam);
-    });
+//?=====================================
+//?           Add Listeners
+//?=====================================
+addListenerToActions() {
+  const addPeopleBtnElmt = document.getElementById('addPeoples');
+  addPeopleBtnElmt.addEventListener("click", () => {
+    const genderParam = sessionStorage.getItem('genderParam');
+    cardsListModule.getListsFromAPI(genderParam);
+  });
 
-    
-    const genderButtons = document.querySelectorAll('.gender-button');
-    genderButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const selectedGender = button.value;
-        sessionStorage.setItem('genderParam', selectedGender);
-        genderButtons.forEach((btn) => btn.classList.remove('selected'));
-        button.classList.add('selected');
-        cardsListModule.filterByGender(selectedGender);
-        cardsListModule.clearUserCards();
-      });
+  
+  const genderButtons = document.querySelectorAll('.gender-button');
+  genderButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const selectedGender = button.value;
+      sessionStorage.setItem('genderParam', selectedGender);
+      genderButtons.forEach((btn) => btn.classList.remove('selected'));
+      button.classList.add('selected');
+      cardsListModule.filterByGender(selectedGender);
+      cardsListModule.clearUserCards();
     });
-  },
+  });
+},
+
+  //?=====================================
+  //?           Burger Menu
+  //?=====================================
   burgerMenu() {
     const burgerMenu = document.getElementById('burger-menu');
     const menu = document.querySelector('header');
-
-    burgerMenu.addEventListener('click', () => {
+  
+    const toggleMenu = () => {
       menu.classList.toggle('menu-open');
-    });
-
+    };
+  
+    const closeMenu = () => {
+      menu.classList.remove('menu-open');
+    };
+  
+    burgerMenu.addEventListener('click', toggleMenu);
   
     document.addEventListener('click', (event) => {
       if (!menu.contains(event.target) && !burgerMenu.contains(event.target)) {
-        menu.classList.remove('menu-open');
+        closeMenu();
       }
     });
-
-
-    window.addEventListener('scroll', () => {
-      menu.classList.remove('menu-open');
+  
+    window.addEventListener('scroll', closeMenu);
+  
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 700) {
+        closeMenu();
+      }
     });
   }
 }

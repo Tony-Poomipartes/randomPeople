@@ -4,9 +4,9 @@ import cardModule from './card';
 let genderParam = '';
 
 const cardsListModule = {
-/*?=====================================*/
-/*?           filter By Gender
-/*?=====================================*/
+//?=====================================
+//?           Filter By Gender
+//?=====================================
   filterByGender(selectedGender) {
     
 
@@ -22,9 +22,10 @@ const cardsListModule = {
     this.getListsFromAPI(genderParam);
     return genderParam;
   },
-/*?=====================================*/
-/*?          clear all Users Cards
-/*?=====================================*/
+
+//?=====================================
+//?           Clear User Cards
+//?=====================================
   clearUserCards() {
     const userCardContainer = document.getElementById('card-list');
     while (userCardContainer.firstChild) {
@@ -32,9 +33,9 @@ const cardsListModule = {
     }
   },
 
-/*?=====================================*/
-/*?   Get lists of users data from API
-/*?=====================================*/
+//?=====================================
+//?           Get Lists From API
+//?=====================================
   async getListsFromAPI(genderParam) {
 
     try {

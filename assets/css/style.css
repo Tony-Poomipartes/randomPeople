@@ -1,3 +1,38 @@
+/*?=====================================*/
+/*?             variables style
+/*?=====================================*/
+:root {
+  --primary-bg-color: #333;
+  --primary-text-color: #fff;
+  --secondary-bg-color: #181818;
+  --accent-color: #067eff;
+  --light-bg-color: #fff;
+  --light-text-color: #333;
+  --shadow-color: rgba(207, 207, 207, 0.2);
+  --border-color: #ddd;
+  --hover-bg-color: rgba(212, 208, 208, 0.714);
+}
+
+/** shadow */
+:root {
+  --box-shadow: 0 0 5px var(--shadow-color);
+}
+
+/** font-size */
+:root {
+  --h1-font-size: 35px;
+  --data-text-font-size: 28px;
+  --data-item-font-size: 28px; 
+}
+
+/* Autres styles */
+:root {
+  --border-radius: 10px;
+  --user-icon-size: 32px;
+  --close-button-size: 18px;
+  --menu-bar-width: 200px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -68,11 +103,22 @@ align-items: center;
 /*?=====================================*/
 /*?    Button style "Add 10 peoples"
 /*?=====================================*/
+#button-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+/*?=====================================*/
+/*?    Button style "Add 10 peoples"
+/*?=====================================*/
 #addPeoples {
   background: #181818;; 
   color: #fff; 
   border: none;
-  padding: 10px 35px;
+  margin-left: 8px;
+  padding: 10px 37px;
   font-size: 16px;
   cursor: pointer;
   margin-bottom: 20px;
@@ -84,6 +130,8 @@ align-items: center;
 /*?       Gender button style 
 /*?=====================================*/
 #gender-buttons{
+  display: flex;
+  flex-direction: row;
   margin-left: 8px;
 }
 .gender-button {
@@ -91,9 +139,9 @@ align-items: center;
   border: 1px solid #067eff;
   color: #ffffff;
   font-weight: normal;
-  padding: 5px 9px;
+  padding: 6px 10px;
   cursor: pointer;
-  margin-right: 7px;
+  margin-right: 9px;
   border-radius: 4px;
   box-shadow: 0 0 5px rgba(207, 207, 207, 0.2);
 }
@@ -166,7 +214,7 @@ align-items: center;
 .close-button:hover {
   color: rgb(0, 0, 0);
   background-color: rgba(212, 208, 208, 0.714); 
-  border-color: rgb(0, 0, 0); 
+  /* border-color: rgb(0, 0, 0);  */
 }
 
 
@@ -226,7 +274,9 @@ align-items: center;
 .menu-open #addPeoples,
 .menu-open .gender-button {
   display: flex;
-  margin-bottom: 5px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+
 }
 
   header {
