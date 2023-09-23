@@ -1,6 +1,5 @@
 const cardModule = {
 
-  cardId: 0,
 //?=====================================
 //?           Create User Card
 //?=====================================
@@ -45,26 +44,9 @@ const cardModule = {
         icon.classList.add('user-icon', `icon-${key.toLowerCase()}`);
         iconContainer.appendChild(icon);
 
-        const cardId = `card-${cardModule.cardId++}`;
-
         icon.addEventListener('mouseenter', () => {
-          
-          const existingDataItem = document.querySelector(`#${cardId} .data-item`);
-          const existingDataText = document.querySelector(`#${cardId} .data-text`);
-          
-          if (existingDataItem) {
-            existingDataItem.remove();
-            existingDataText.remove();
-          }
-
-          const dataText = document.createElement('p');
-          const dataItem = document.createElement('p');
           dataText.textContent = `${prefix}`;
           dataItem.textContent = `${value}`;
-          dataItem.classList.add('data-item');
-          dataText.classList.add('data-text');
-          userCard.appendChild(dataText);
-          userCard.appendChild(dataItem);
         });
     });
 
@@ -73,9 +55,7 @@ const cardModule = {
     userCard.appendChild(closeButton);
     
     document.getElementById('card-list').appendChild(cardWrapper);
-    cardModule.activeIcons();
-    const nameIcons = document.querySelector('.icon-name');
-    nameIcons.classList.add('active');
+    this.activeIcons();
   },
   
 //?=====================================
@@ -98,7 +78,6 @@ createUserCardElement(userData) {
   img.src = userData.picture.large;
   img.alt = 'Profile Picture';
   userCard.appendChild(img);
-  userCard.id = `card-${cardModule.cardId++}`; // Affectez un ID unique à chaque carte
   return userCard;
 },
 
@@ -106,18 +85,36 @@ createUserCardElement(userData) {
 //?           Icons Listeners
 //?=====================================
 activeIcons() {
-  const icons = document.querySelectorAll('.user-icon');
-  icons.forEach((icon) => {
-    icon.addEventListener('mouseenter', () => {
-      const cardId = icon.closest('.user-card').id;
-      const otherIcons = document.querySelectorAll(`#${cardId} .user-icon`);
-      otherIcons.forEach((otherIcon) => {
-        if (otherIcon !== icon) {
-          otherIcon.classList.remove('active');
-        }
+
+  const userCards = document.querySelectorAll('.user-card');
+  for (const userCard of userCards) {
+    const userIcons = document.querySelectorAll('.user-icon');
+    for (const userIcon of userIcons) {
+      if(!userIcon.classList.contains('active')) {
+        console.log('userIcon.classList', userIcon.classList);
+        const nameIcon = userCard.querySelector('.icon-name');
+        nameIcon.classList.add('active');
+      }
+    // const nameIcon = userCard.querySelector('.icon-name');
+    // nameIcon.classList.add('active');
+  }
+}
+  userCards.forEach((userCard) => {
+    const icons = userCard.querySelectorAll('.user-icon');
+    const nameIcon = userCard.querySelector('.icon-name');
+
+    icons.forEach((icon) => {
+      icon.addEventListener('mouseenter', () => {
+        icons.forEach((otherIcon) => {
+          if (otherIcon !== icon) {
+            otherIcon.classList.remove('active');
+          }
+        });
+        icon.classList.add('active');
       });
-      icon.classList.add('active');
     });
+
+    nameIcon.classList.add('active');
   });
 },
 
