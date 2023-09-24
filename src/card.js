@@ -85,37 +85,32 @@ createUserCardElement(userData) {
 //?           Icons Listeners
 //?=====================================
 activeIcons() {
-
   const userCards = document.querySelectorAll('.user-card');
+
   for (const userCard of userCards) {
-    const userIcons = document.querySelectorAll('.user-icon');
-    for (const userIcon of userIcons) {
-      if(!userIcon.classList.contains('active')) {
-        console.log('userIcon.classList', userIcon.classList);
-        const nameIcon = userCard.querySelector('.icon-name');
-        nameIcon.classList.add('active');
-      }
-    // const nameIcon = userCard.querySelector('.icon-name');
-    // nameIcon.classList.add('active');
-  }
-}
-  userCards.forEach((userCard) => {
     const icons = userCard.querySelectorAll('.user-icon');
     const nameIcon = userCard.querySelector('.icon-name');
+    let hasActiveIcon = false;
 
-    icons.forEach((icon) => {
+    for (const icon of icons) {
       icon.addEventListener('mouseenter', () => {
-        icons.forEach((otherIcon) => {
+        for (const otherIcon of icons) {
           if (otherIcon !== icon) {
             otherIcon.classList.remove('active');
           }
-        });
+        }
         icon.classList.add('active');
       });
-    });
 
-    nameIcon.classList.add('active');
-  });
+      if (icon.classList.contains('active')) {
+        hasActiveIcon = true;
+      }
+    }
+
+    if (!hasActiveIcon) {
+      nameIcon.classList.add('active');
+    }
+  }
 },
 
 //?=====================================
