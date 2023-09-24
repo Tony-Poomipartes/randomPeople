@@ -3,7 +3,7 @@ import cardsListModule from './cardsList';
 const app = {
   init: function () {
 
-    app.addListenerToActions();
+    app.buttonListenerToActions();
     app.burgerMenu()
     cardsListModule.getListsFromAPI();
     sessionStorage.removeItem('genderParam');
@@ -11,27 +11,34 @@ const app = {
   },
 
 //?=====================================
-//?           Add Listeners
+//?           Add button Listeners
 //?=====================================
-addListenerToActions() {
+buttonListenerToActions() {
   const addPeopleBtnElmt = document.getElementById('addPeoples');
   addPeopleBtnElmt.addEventListener("click", () => {
     const genderParam = sessionStorage.getItem('genderParam');
     cardsListModule.getListsFromAPI(genderParam);
   });
 
-  
   const genderButtons = document.querySelectorAll('.gender-button');
-  genderButtons.forEach((button) => {
+  for (const button of genderButtons) {
     button.addEventListener('click', () => {
+      if (button.classList.contains('selected')) {
+        return;
+      }
+
       const selectedGender = button.value;
       sessionStorage.setItem('genderParam', selectedGender);
-      genderButtons.forEach((btn) => btn.classList.remove('selected'));
+      
+      for (const btn of genderButtons) {
+        btn.classList.remove('selected');
+      }
+
       button.classList.add('selected');
       cardsListModule.filterByGender(selectedGender);
       cardsListModule.clearUserCards();
     });
-  });
+  }
 },
 
   //?=====================================
