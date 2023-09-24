@@ -9,6 +9,7 @@ const cardModule = {
     const userCard = this.createUserCardElement(userData);
     const closeButton = this.createCloseButton(userCard);
 
+
     cardWrapper.appendChild(userCard);
 
     const iconContainer = document.createElement('div');
@@ -34,6 +35,7 @@ const cardModule = {
     dataText.classList.add('data-text');
     userCard.appendChild(dataText);
     userCard.appendChild(dataItem);
+
     let icon;
     Object.entries(userDataKeys).map(([key,  [prefix, value]]) => {
       icon = document.createElement('img');
@@ -41,31 +43,19 @@ const cardModule = {
         icon.alt = `${key} Icon`;
         icon.classList.add('user-icon', `icon-${key.toLowerCase()}`);
         iconContainer.appendChild(icon);
-        icon.addEventListener('mouseenter', () => {
-          const existingDataItem = userCard.querySelector('.data-item');
-          const existingDataText = userCard.querySelector('.data-text');
-          if (existingDataItem) {
-            existingDataItem.remove();
-            existingDataText.remove();
-          }
 
-          const dataText = document.createElement('p');
-          const dataItem = document.createElement('p');
+        icon.addEventListener('mouseenter', () => {
           dataText.textContent = `${prefix}`;
           dataItem.textContent = `${value}`;
-          dataItem.classList.add('data-item');
-          dataText.classList.add('data-text');
-          userCard.appendChild(dataText);
-          userCard.appendChild(dataItem);
         });
     });
 
-    
     userCard.appendChild(iconContainer);
-
+    
     userCard.appendChild(closeButton);
-
+    
     document.getElementById('card-list').appendChild(cardWrapper);
+    this.activeIcons();
   },
   
 //?=====================================
@@ -80,19 +70,48 @@ const cardModule = {
 //?=====================================
 //?           Create User Card
 //?=====================================
-  createUserCardElement(userData) {
-    const userCard = document.createElement('div');
-    userCard.classList.add('user-card');
-    const img = document.createElement('img');
-    img.classList.add('user-image');
-    img.src = userData.picture.large;
-    img.alt = 'Profile Picture';
-    userCard.appendChild(img);
+createUserCardElement(userData) {
+  const userCard = document.createElement('div');
+  userCard.classList.add('user-card');
+  const img = document.createElement('img');
+  img.classList.add('user-image');
+  img.src = userData.picture.large;
+  img.alt = 'Profile Picture';
+  userCard.appendChild(img);
+  return userCard;
+},
 
+//?=====================================
+//?           Icons Listeners
+//?=====================================
+activeIcons() {
+  const userCards = document.querySelectorAll('.user-card');
 
+  for (const userCard of userCards) {
+    const icons = userCard.querySelectorAll('.user-icon');
+    const nameIcon = userCard.querySelector('.icon-name');
+    let hasActiveIcon = false;
 
-    return userCard;
-  },
+    for (const icon of icons) {
+      icon.addEventListener('mouseenter', () => {
+        for (const otherIcon of icons) {
+          if (otherIcon !== icon) {
+            otherIcon.classList.remove('active');
+          }
+        }
+        icon.classList.add('active');
+      });
+
+      if (icon.classList.contains('active')) {
+        hasActiveIcon = true;
+      }
+    }
+
+    if (!hasActiveIcon) {
+      nameIcon.classList.add('active');
+    }
+  }
+},
 
 //?=====================================
 //?           Create Close Button

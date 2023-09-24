@@ -230,11 +230,25 @@ align-items: center;
 /*?=====================================*/
 /*?        icon style
 /*?=====================================*/
+.icon-container {
+  position: relative;
+  overflow: hidden; 
+  height: 50px;
+  margin-bottom: 30px;
+}
+
 .user-icon {
-  width: 32px;
-  height: 32px;
-  margin-right: 30px;
+  width: 50px;
+  height: 100px;
+  margin-right: 20px;
   box-shadow: 0 0 5px rgba(207, 207, 207, 0.2);
+  transform: translateY(-50%);
+  transition: transform 0.4s; 
+  cursor: pointer;
+}
+
+.user-icon.active {
+  transform: translateY(0%); 
 }
 
 /*?=====================================*/
@@ -253,8 +267,8 @@ align-items: center;
   position: absolute;
   top: 250px;
   text-align: center;
-  font-size: 28px;
-  font-weight: bold; 
+  font-size: 22px;
+  font-weight: 900; 
   font-family:  Helvetica,Arial, sans-serif;
 }
 
