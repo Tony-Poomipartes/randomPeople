@@ -1,0 +1,57 @@
+{
+  "name": "Random People",
+  "short_name": "RandomPeople",
+  "description": "Une application web avec utilisation d'api.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#333",
+  "icons": [
+    {
+      "src": "/userIcon/Address.png",
+      "sizes": "50x100",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/userIcon/Birthday.png",
+      "sizes": "50x100",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },  
+    {
+      "src": "/userIcon/Email.png",
+      "sizes": "50x100",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },    
+    {
+      "src": "/userIcon/Name.png",
+      "sizes": "50x100",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },    
+    {
+      "src": "/userIcon/Password.png",
+      "sizes": "50x100",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },    
+    {
+      "src": "/userIcon/Phone.png",
+      "sizes": "50x100",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "splash_pages": null,
+  "scope": "/",
+  "orientation": "any",
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "permissions": [],
+  "serviceworker": {
+    "src": "/service-worker.js",
+    "scope": "/"
+  }
+}

@@ -114,9 +114,9 @@ align-items: center;
 /*?    Button style "Add 10 peoples"
 /*?=====================================*/
 #addPeoples {
-  background: #181818;; 
+  background: #181818;
   color: #fff; 
-  border: none;
+  border: 2px solid transparent;
   margin-left: 8px;
   padding: 10px 37px;
   font-size: 16px;
@@ -124,7 +124,17 @@ align-items: center;
   margin-bottom: 20px;
   border-radius: 4px;
   box-shadow: 0 0 5px rgba(207, 207, 207, 0.2);
+  transition: box-shadow 1s cubic-bezier(0.89, 0, 0, 0.19), border 0.5s ease, background 0.3s ease;
 }
+#addPeoples:active {
+  transition: box-shadow 0s, border 0s; ;
+  border: 2px solid #83BA43;
+  box-shadow: 0 0 5px rgba(144, 236, 86, 0.92);
+}
+#addPeoples:hover {
+  background: #212020;
+}
+
 
 /*?=====================================*/
 /*?       Gender button style 
@@ -135,8 +145,8 @@ align-items: center;
   margin-left: 8px;
 }
 .gender-button {
-  background-color: #067eff1d;
-  border: 1px solid #067eff;
+  background-color: #181818;
+  border: 2px solid transparent;
   color: #ffffff;
   font-weight: normal;
   padding: 6px 10px;
@@ -144,10 +154,20 @@ align-items: center;
   margin-right: 9px;
   border-radius: 4px;
   box-shadow: 0 0 5px rgba(207, 207, 207, 0.2);
+  transition: box-shadow 1s cubic-bezier(0.89, 0, 0, 0.19), border 0.5s ease, background 0.3s ease;
 }
-
+.gender-button:active {
+  transition: box-shadow 0s, border 0s; ;
+  border: 2px solid #83BA43;
+  box-shadow: 0 0 5px rgba(144, 236, 86, 0.92);
+}
+.gender-button:hover {
+  background: #212020;
+}
 .gender-button.selected {
   background: #181818;
+  border: 2px solid #83BA43;
+  box-shadow: 0 0 5px rgba(110, 238, 30, 92%);
   color: white;
   font-weight: bold;
 }
@@ -187,8 +207,9 @@ align-items: center;
 /*?        user image style
 /*?=====================================*/
 .user-image{
-  max-width: 100%;
-  height: auto; 
+  object-fit: contain;
+  max-height: 8em;
+  max-width: 8em;
   border-radius: 50%;
 }
 
@@ -231,6 +252,7 @@ align-items: center;
 /*?        icon style
 /*?=====================================*/
 .icon-container {
+  object-fit: contain;
   position: relative;
   overflow: hidden; 
   height: 50px;
@@ -238,13 +260,13 @@ align-items: center;
 }
 
 .user-icon {
-  width: 50px;
-  height: 100px;
+  max-width: 50px;
+  max-height: 100px;
   margin-right: 20px;
   box-shadow: 0 0 5px rgba(207, 207, 207, 0.2);
   transform: translateY(-50%);
   transition: transform 0.4s; 
-  cursor: pointer;
+  cursor: cell;
 }
 
 .user-icon.active {
