@@ -130,4 +130,4 @@ activeIcons() {
   },
 };
 
-export default cardModule;
+module.exports = cardModule;

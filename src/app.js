@@ -6,7 +6,6 @@ const app = {
     app.buttonListenerToActions();
     app.burgerMenu()
     cardsListModule.getListsFromAPI();
-    sessionStorage.removeItem('genderParam');
     console.log('app.init !');
   },
 

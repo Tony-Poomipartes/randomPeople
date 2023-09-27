@@ -1,5 +1,5 @@
-import apiModule from './api';
-import cardModule from './card';
+const apiModule = require('./api') ;
+const cardModule = require('./card') ;
 
 let genderParam = '';
 
@@ -60,4 +60,4 @@ const cardsListModule = {
   }
 };
 
-export default cardsListModule;
+module.exports = cardsListModule;
